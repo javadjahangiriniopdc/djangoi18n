@@ -1,0 +1,30 @@
+make messages
+django-admin makemessages -l fa
+
+make change in messages file
+django-admin makemessages -a
+
+
+compile messages
+django-admin compilemessages
+
+
+https://mlocati.github.io/articles/gettext-iconv-windows.html
+The easiest way is to download the precompiled binary installer. Download the "static" flavor of your Operating System (32bit or 64bit) and simple run the installer.
+
+Update the system PATH:
+
+Control Panel > System > Advanced > Environment Variables
+
+In the System variables list, click Path, click Edit and then New. Add C:\Program Files\gettext-iconv\bin value.
+
+To check if it's working, go to cmd, navigate to your project folder and type
+
+"manage makemessages -l de".
+
+You may have to configure the path to store translations. Create a dir named "locale" in your project dir and point to it at settings.py
+
+Also make sure to set the local path in settings.py file:
+
+LOCALE_PATHS = (
+    BASE_DIR + 'locale/', )
